@@ -1,1 +1,11 @@
+// Import font Nunito
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+// Override Bootstrap variables
+$green: #15400E;
+
+$primary: rgba(21, 64, 14, 0.8);
+$font-family-base: 'Nunito', Helvetica;
+
+// Import Bootstrap
 @import 'bootstrap/scss/bootstrap';

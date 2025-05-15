@@ -1,11 +1,11 @@
-<div class="header" style="background-color: #F2F5FC">
+<header style="background-color: #F2F5FC">
     <div class="container">
         <div class="navbar">
             <a class="navbar-brand" href="{{ url('/')}}">
                 <img src="{{ asset('adn-hd.png') }}" alt="Logo" class="logo" style="width: 48px; height: 48px;">
                 <span class="title fw-semibold" style="color: #15400e; font-family: Nunito;">Aliansi Dosen Nahada</span>
             </a>
-
+    
             <div class="navbar-menu">
                 <ul class="nav gap-3">
                     <li class="nav-item">
@@ -37,4 +37,4 @@
             </div>
         </div>
     </div>
-</div>
+</header>

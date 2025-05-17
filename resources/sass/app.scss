@@ -7,5 +7,9 @@ $green: #15400E;
 $primary: rgba(21, 64, 14, 0.8);
 $font-family-base: 'Nunito', Helvetica; // untuk font keseluruhan
 
+h1, h2, h3, h4, h5, h6 {
+  color: #15400E !important;
+}
+
 // Import Bootstrap
 @import 'bootstrap/scss/bootstrap';

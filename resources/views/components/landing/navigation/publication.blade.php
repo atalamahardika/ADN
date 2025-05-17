@@ -96,9 +96,69 @@
 
         <div class="tab-pane fade" id="mandiri" role="tabpanel">
             <h4 class="text-center">List Jurnal</h4>
-            <h5>Judul Penelitian Mandiri</h5>
-            <p>Profil Jurnal Mandiri (Peneliti, tahun, ruang lingkup)</p>
-            <a href="#" target="_blank">Link Jurnal Mandiri</a>
+
+            @if ($mandiri->count())
+                @foreach ($mandiri as $item)
+                    <div class="mb-4 p-3 border rounded shadow-sm">
+                        <h5 class="mb-2">{{ $item->judul }}</h5>
+
+                        <p class="mb-1">
+                            {{ $item->peneliti }} ({{ $item->tahun }}). '{{ $item->judul }}',
+                            <em>{{ $item->nama_jurnal }}</em>, {{ $item->volume }}({{ $item->nomor }}),
+                            {{ $item->halaman }}.
+                        </p>
+
+                        @if ($item->link)
+                            <a href="{{ $item->link }}" target="_blank">Lihat Jurnal</a>
+                        @endif
+                    </div>
+                @endforeach
+
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $mandiri->appends(['tab' => 'mandiri'])->links('vendor.pagination.bootstrap-5-custom') }}
+                </div>
+            @else
+                <p class="text-center mt-4">Belum ada publikasi mandiri.</p>
+            @endif
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const activeTab = urlParams.get('tab');
+
+            // Handle active tab on reload
+            if (activeTab === 'mandiri') {
+                const tabMandiri = document.querySelector('#mandiri-tab');
+                const contentMandiri = document.querySelector('#mandiri');
+                const tabAdn = document.querySelector('#adn-tab');
+                const contentAdn = document.querySelector('#adn');
+
+                tabAdn.classList.remove('active');
+                contentAdn.classList.remove('show', 'active');
+                tabMandiri.classList.add('active');
+                contentMandiri.classList.add('show', 'active');
+            }
+
+            // Reset to page 1 when switching tabs
+            document.querySelector('#mandiri-tab').addEventListener('click', function() {
+                const url = new URL(window.location.href);
+                url.searchParams.set('tab', 'mandiri');
+                url.searchParams.delete('page'); // reset page
+                window.location.href = url.toString(); // trigger reload, bukan hanya ganti URL
+            });
+
+
+            document.querySelector('#adn-tab').addEventListener('click', function() {
+                const url = new URL(window.location.href);
+                url.searchParams.delete('tab');
+                url.searchParams.delete('page');
+                window.location.href = url.toString(); // trigger reload
+            });
+
+        });
+    </script>
+@endpush

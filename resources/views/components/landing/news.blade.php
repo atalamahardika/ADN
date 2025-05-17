@@ -8,7 +8,7 @@
                     <img src="{{ asset('/' . $berita->gambar) }}" class="card-img-top" alt="Thumbnail {{ $berita->judul }}">
                     <div class="card-body d-flex flex-column">
                         <h6 class="card-title" style="height: 100px">{{ $berita->judul }}</h6>
-                        <a href="{{ route('pages.news-detail', $berita->slug) }}" class="btn btn-success btn-sm mt-auto">
+                        <a href="{{ route('news.show-detail', $berita->slug) }}" class="btn btn-success btn-sm mt-auto">
                             Baca Selengkapnya
                         </a>
                     </div>

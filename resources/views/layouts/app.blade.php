@@ -28,5 +28,8 @@ Main dimuat dinamis, sehingga bisa diisi dengan konten yang berbeda-beda sesuai 
     </main>
 
     @include('components.footer')
+
+    @stack('scripts')
+
 </body>
 </html>

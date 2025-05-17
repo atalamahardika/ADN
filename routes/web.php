@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\PublikasiController;
 use App\Models\Berita;
 
 Route::get('/', function () {
@@ -19,5 +20,7 @@ Route::get('/divisi', function() {
 });
 
 
-Route::get('/berita', [BeritaController::class, 'index'])->name('pages.news');
-Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('pages.news-detail');
+Route::get('/berita', [BeritaController::class, 'index'])->name('news.index');
+Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('news.show-detail');
+
+Route::get('/publikasi', [PublikasiController::class, 'index'])->name('publikasi.index');

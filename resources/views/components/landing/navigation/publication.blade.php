@@ -24,6 +24,7 @@
         transform: translateY(-5px);
         transition: 0.3s;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        border-color: #2e7d32;
     }
 
     .card {

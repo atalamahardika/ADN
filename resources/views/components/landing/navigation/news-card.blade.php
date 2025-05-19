@@ -6,6 +6,7 @@
     .news-card:hover {
         transform: scale(1.01);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        border-color: #2e7d32;
     }
 
     .img-wrapper {
